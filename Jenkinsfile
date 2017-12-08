@@ -4,9 +4,11 @@ pipeline {
         stage('Send') {
             steps {
  
-     mail to: 'idzeland@gmail.com',
-     subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
-     body: "Please go to ${env.BUILD_URL}."
+    emailext (
+      to: 'solariat.active_dev@genesys.com jopdevops@flugel.it',
+      subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - ' + "${env.BUILD_STATUS}",
+      body: 'Project: $PROJECT_NAME<br/>Build # $BUILD_NUMBER<br/>Build status: ' + "${env.BUILD_STATUS}" + '<br/>View job results: $BUILD_URL<br/>Console output:<br/>${BUILD_URL}consoleFull'
+    )
      }
     }
    
