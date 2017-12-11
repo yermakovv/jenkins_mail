@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+           stage('FAILED'){
+                 steps{
+                  env.BUILD_STATUS = 'FAILED'
+               }
+           }
           stage('Echo') {
              steps {
                  echo "Hello"
