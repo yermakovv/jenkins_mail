@@ -17,5 +17,10 @@ pipeline {
                  echo "Hello"
              }
           }
+         stage('Set ERROR'){
+             steps {
+                env.BUILD_STATUS = 'FAILED'
+             }
+         }
      }
  }
