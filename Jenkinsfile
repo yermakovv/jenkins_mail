@@ -15,8 +15,5 @@ pipeline {
                )
             }
          }
-        stage ('Allure results'){
-            allure results: [[path: 'allure-results']]
-        }
      }
  }
