@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+          stage(''){
+              steps{
+                env.BUILD_STATUS = 'FAILED'
+              }
+          }
           stage('Echo') {
              steps {
                  echo "Hello"
@@ -15,8 +20,5 @@ pipeline {
                )
             }
          }
-        stage ('Allure results'){
-            allure results: [[path: 'allure-results']]
-        }
      }
  }
